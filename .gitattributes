@@ -3,6 +3,7 @@
 
 # Specific files that MUST always have LF line endings (Unix-style)
 *.sh text eol=lf
+*.cmd text eol=lf
 *.js text eol=lf
 *.jsx text eol=lf
 *.json text eol=lf

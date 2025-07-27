@@ -41,8 +41,8 @@ Ensure you have the following installed on your system:
 The following tools and runtimes are used within the Docker containers:
 
 * **Java Development Kit (JDK):** `OpenJDK 21` (used in backend Dockerfile).
-* **Maven:** Version `3.8.1` (installed in backend Dockerfile).
-* **Spring Boot:** Version `3.3.1` (specified in `pom.xml`).
+* **Maven:** Version `3.9.11` (used via Maven Wrapper, specified in `.mvn/wrapper/maven-wrapper.properties`).
+* **Spring Boot:** Version `3.5.4` (specified in `pom.xml`).
 * **MySQL Database:** Version `8.0` (used in `docker-compose.yml`).
 * **phpMyAdmin:** `latest` (used in `docker-compose.yml`).
 * **Node.js:** Version `22-alpine` (used in frontend Dockerfile).

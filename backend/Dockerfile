@@ -8,16 +8,26 @@ RUN groupadd -r springgroup && useradd -r -g springgroup springuser
 WORKDIR /home/springuser/app
 RUN chown -R springuser:springgroup /home/springuser/app
 
-# Copy Maven (pom.xml) file to leverage layer caching
+# Copy Maven Wrapper files (these define the Maven version)
+COPY .mvn .mvn
+COPY mvnw .
+COPY mvnw.cmd .
+
+# Ensure mvnw is executable
+RUN chmod +x mvnw
+
+# Copy pom.xml to leverage layer caching
 COPY pom.xml .
+
+# Download project dependencies using the Maven Wrapper
+# Note: The Maven Wrapper will download the specific Maven version defined in .mvn/wrapper/maven-wrapper.properties
+RUN ./mvnw dependency:go-offline
+
+# Copy the rest of the source code
 COPY src ./src
 
-# Download project dependencies.
-RUN apt-get update && apt-get install -y maven \
-    && mvn dependency:go-offline
-
-# Compile the Spring Boot application
-RUN mvn clean install -DskipTests
+# Compile the Spring Boot application using the Maven Wrapper
+RUN ./mvnw clean install -DskipTests
 
 # Copy the generated JAR
 COPY target/*.jar app.jar
