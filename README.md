@@ -1,5 +1,7 @@
 # Juan Manuel Cerdeira's Notes App
 
+**[Versión en español de este README: README.es.md]**
+
 This project features a full-stack application designed to manage notes, demonstrating proficiency in modern web development technologies. It includes a React-based frontend, a Spring Boot backend, a MySQL database, and phpMyAdmin for database management, all orchestrated using Docker Compose.
 
 ## Features
@@ -12,10 +14,11 @@ This project features a full-stack application designed to manage notes, demonst
   * Archive and unarchive notes.
   * Delete notes.
 
-* **Category/Tag Management (Phase 2 - *If implemented*):**
-  * Create and manage categories/tags.
-  * Assign categories to notes.
-  * Filter notes by category.
+* **Category/Tag Management (Phase 2 - *Future Development*):**
+    This feature is planned for future development and can be gladly completed if requested by the evaluators. It would include:
+  * Creating and managing categories/tags.
+  * Assigning categories to notes.
+  * Filtering notes by category.
 
 ## Architecture
 
@@ -42,7 +45,7 @@ The following tools and runtimes are used within the Docker containers:
 
 * **Java Development Kit (JDK):** `OpenJDK 21` (used in backend Dockerfile).
 * **Maven:** Version `3.9.11` (used via Maven Wrapper, specified in `.mvn/wrapper/maven-wrapper.properties`).
-* **Spring Boot:** Version `3.5.4` (specified in `pom.xml`).
+* **Spring Boot:** Version `3.3.1` (specified in `pom.xml`).
 * **MySQL Database:** Version `8.0` (used in `docker-compose.yml`).
 * **phpMyAdmin:** `latest` (used in `docker-compose.yml`).
 * **Node.js:** Version `22-alpine` (used in frontend Dockerfile).
@@ -67,7 +70,7 @@ Follow these steps to get the application up and running:
 2. **Navigate to the project root directory:**
 
     ```bash
-    cd notes-app
+    cd Cerdeira-eb9bc4
     ```
 
 3. **Grant execute permissions to the startup script:**
@@ -84,7 +87,7 @@ Follow these steps to get the application up and running:
     ./run.sh
     ```
 
-    This command will build the Docker images (if necessary) and bring up all the services defined in `docker-compose.yml` in detached mode (background).
+    This command will build the Docker images (if necessary) and bring up all the services defined in `docker-compose.yml` in detached mode (background), **waiting for them to become healthy** before completing.
 
     **Important Note for First-Time Execution:**
     The very first time you run `./run.sh`, the process may take several minutes (typically 5-15 minutes, depending on your internet connection and machine specifications). This is because Docker needs to download base images, install project dependencies (Node.js and Maven), and build the applications from scratch. Subsequent executions will be significantly faster due to Docker's build cache.

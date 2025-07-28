@@ -1,49 +1,79 @@
 services:
   db:
     image: mysql:8.0
-    restart: always
+    container_name: notes-app-mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_ROOT_PASSWORD: root_password # Strong password for root in production
       MYSQL_DATABASE: notes_app_db
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
-      - "3306:3306"
+      - "3306:3306" # Expose MySQL port to host
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/mysql # Persistent volume for database data
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - notes-app-network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    restart: always
-    ports:
-      - "8081:80"
+    container_name: notes-app-phpmyadmin
     environment:
-      PMA_HOST: db
+      PMA_HOST: db # Connects to the 'db' service
       MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "8081:80" # Expose phpMyAdmin on port 8081
     depends_on:
-      - db
+      db:
+        condition: service_healthy # Ensure DB is healthy before starting phpMyAdmin
+    networks:
+      - notes-app-network
 
   backend:
-    build: ./backend
-    restart: on-failure
+    build:
+      context: ./backend # Build context is the backend directory
+      dockerfile: Dockerfile # Use the Dockerfile in the backend directory
+    container_name: notes-app-backend
     ports:
-      - "8080:8080"
+      - "8080:8080" # Expose backend port to host
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/notes_app_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/notes_app_db?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
-      SPRING_JPA_HIBERNATE_DDL_AUTO: none
-      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQL8Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update # Or validate/none in production
+      SPRING_PROFILES_ACTIVE: dev
     depends_on:
-      - db
+      db:
+        condition: service_healthy # Ensure DB is healthy before starting backend
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s # Give Spring Boot time to start up
+    networks:
+      - notes-app-network
 
   frontend:
-    build: ./frontend
-    restart: on-failure
+    build:
+      context: ./frontend # Build context is the frontend directory
+      dockerfile: Dockerfile # Use the Dockerfile in the frontend directory
+    container_name: notes-app-frontend
     ports:
-      - "80:80"
+      - "80:80" # Expose Nginx on port 80 (default HTTP port)
     depends_on:
-      - backend
+      backend:
+        condition: service_started # Frontend needs backend to be running for API calls
+    networks:
+      - notes-app-network
 
 volumes:
-  db_data:
+  db_data: # Define the named volume for database persistence
+
+networks:
+  notes-app-network: # Define a custom network for services to communicate
+    driver: bridge

@@ -1,6 +1,10 @@
 # Use a Java base image
 FROM openjdk:21-jdk-slim
 
+# Install curl for healthcheck and other potential needs
+# apt-get update is needed before apt-get install
+RUN apt-get update && apt-get install -y curl --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 # Create a non-root user and group for security
 RUN groupadd -r springgroup && useradd -r -g springgroup springuser
 

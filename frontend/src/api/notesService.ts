@@ -3,7 +3,9 @@ import { type NoteRequestDto } from '../dto/NoteRequestDto';
 import { type NoteResponseDto } from '../dto/NoteResponseDto';
 
 // Define the base URL of your backend API
-const API_BASE_URL = 'http://localhost:8080/api/notes';
+// When running in Docker with Nginx proxy, this should be a relative path.
+// Nginx will intercept /api/ and proxy it to the backend service.
+const API_BASE_URL = '/api/notes';
 
 /**
  * Creates a new note in the backend.
