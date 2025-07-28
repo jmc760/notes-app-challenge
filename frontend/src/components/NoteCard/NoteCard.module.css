@@ -1,0 +1,99 @@
+.noteCard {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.noteCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.noteTitle {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.noteContent {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  white-space: pre-wrap;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.noteMeta {
+  font-size: 0.8em;
+  color: #777;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.noteActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  text-decoration: none;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.viewButton {
+  background-color: #007bff;
+}
+
+.viewButton:hover {
+  background-color: #0056b3;
+}
+
+.archiveButton {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.archiveButton:hover {
+  background-color: #e0a800;
+}
+
+.unarchiveButton {
+  background-color: #28a745;
+}
+
+.unarchiveButton:hover {
+  background-color: #218838;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+}
+
+.deleteButton:hover {
+  background-color: #bd2130;
+}

@@ -1,0 +1,43 @@
+.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.logoLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navigation .navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.navigation .navLink {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navigation .navLink:hover,
+.navigation .navLink:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}

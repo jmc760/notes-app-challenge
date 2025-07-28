@@ -1,0 +1,90 @@
+.container {
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 10px;
+}
+
+.actionsBar {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  margin-bottom: 20px;
+}
+
+.createNoteButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: inline-block;
+}
+
+.createNoteButton:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.createNoteButton:active {
+  transform: translateY(0);
+}
+
+.loadingMessage,
+.errorMessage,
+.noNotesMessage {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 50px;
+}
+
+.errorMessage {
+  color: #dc3545;
+}
+
+.retryButton {
+  display: block;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.retryButton:hover {
+  background-color: #0056b3;
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 25px; /* Space between note cards */
+  padding: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 1.8em;
+  }
+  .notesGrid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+}

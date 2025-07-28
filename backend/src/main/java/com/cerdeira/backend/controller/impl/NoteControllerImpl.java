@@ -7,13 +7,17 @@ import com.cerdeira.backend.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api") // Defines the base prefix for all endpoints in this controller
+@CrossOrigin(origins = "http://localhost:5173")
+// Allows requests from Vite frontend's origin.
+// In production, this should be the frontend's actual domain (e.g., https://notes-app.com)
 public class NoteControllerImpl implements NoteController {
 
     private final NoteService noteService;
