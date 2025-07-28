@@ -6,7 +6,7 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link to="/" className={styles.logoLink}>
-          <h1>Notes App</h1>
+          <h1>Notes App 📝</h1>
         </Link>
       </div>
       <nav className={styles.navigation}>

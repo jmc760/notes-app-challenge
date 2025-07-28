@@ -104,14 +104,14 @@ export const NotesActivePage = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.pageTitle}>Active Notes</h2>
+      <h2 className={styles.pageTitle}>Active Notes 🗒️</h2>
       <div className={styles.actionsBar}>
         <Link to="/notes/new" className={styles.createNoteButton}>
           Create New Note
         </Link>
       </div>
       {notes.length === 0 ? (
-        <p className={styles.noNotesMessage}>No active notes found. Why not create one?</p>
+        <p className={styles.noNotesMessage}>No active notes found. Why not create one? 🤓</p>
       ) : (
         <div className={styles.notesGrid}>
           {notes.map((note) => (

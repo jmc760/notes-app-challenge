@@ -1,0 +1,43 @@
+.container {
+  padding: 20px;
+  max-width: 800px; /* Adjust max-width for the form */
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 10px;
+}
+
+.loadingMessage,
+.errorMessage {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.errorMessage {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.loadingMessage {
+  color: #007bff;
+  background-color: #e0f7fa;
+  border: 1px solid #b3e5fc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 1.8em;
+  }
+}
