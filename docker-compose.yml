@@ -14,8 +14,9 @@ services:
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
       interval: 10s
-      timeout: 5s
+      timeout: 120s 
       retries: 5
+      start_period: 60s
     networks:
       - notes-app-network
 
