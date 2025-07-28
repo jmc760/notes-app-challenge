@@ -46,9 +46,12 @@ The following tools and runtimes are used within the Docker containers:
 * **MySQL Database:** Version `8.0` (used in `docker-compose.yml`).
 * **phpMyAdmin:** `latest` (used in `docker-compose.yml`).
 * **Node.js:** Version `22-alpine` (used in frontend Dockerfile).
-* **npm:** Version `8.x.x` (comes with Node.js 18, used for dependency management).
-* **React:** Version `18.2.0` (specified in `frontend/package.json`).
-* **Vite:** Version `4.x.x` (specified in `frontend/package.json`, used for React build).
+* **npm:** Version `10.9.2` (comes with Node.js 22, used for dependency management).
+* **React:** Version `19.1.0` (specified in `frontend/package.json`).
+* **Vite:** Version `7.0.4` (specified in `frontend/package.json`, used for React build).
+* **TypeScript:** Version `5.8.3` (specified in `frontend/package.json`, used for type-checking and compilation).
+* **ESLint:** Version `9.30.1` (specified in `frontend/package.json`, used for code linting).
+* **React Router DOM:** Version `7.7.1` (specified in `frontend/package.json`, used for client-side routing).
 * **Nginx:** `alpine` image (used in frontend Dockerfile for serving React app).
 
 ## How to Run the Application
