@@ -58,7 +58,7 @@ Sigue estos pasos para poner la aplicación en funcionamiento:
 1. **Clona el repositorio:**
 
     ```bash
-    git clone [https://github.com/jmc760/notes-app-challenge](https://github.com/jmc760/notes-app-challenge)
+    git clone [https://github.com/jmc760/docker-composed-notes-app](https://github.com/jmc760/docker-composed-notes-app)
     ```
 
 2. **Navega al directorio raíz del proyecto:**
