@@ -6,19 +6,13 @@ Este proyecto presenta una aplicación full-stack diseñada para gestionar notas
 
 ## Características
 
-* **Gestión de Notas (Fase 1):**
+* **Gestión de Notas:**
   * Crear nuevas notas.
   * Ver notas activas.
   * Ver notas archivadas.
   * Editar notas existentes.
   * Archivar y desarchivar notas.
   * Eliminar notas.
-
-* **Gestión de Categorías/Etiquetas (Fase 2 - *Desarrollo Futuro*):**
-    Esta característica está planificada para un desarrollo futuro y puede ser completada con gusto si los evaluadores lo solicitan. Incluiría:
-  * Crear y gestionar categorías/etiquetas.
-  * Asignar categorías a las notas.
-  * Filtrar notas por categoría.
 
 ## Arquitectura
 
@@ -64,7 +58,7 @@ Sigue estos pasos para poner la aplicación en funcionamiento:
 1. **Clona el repositorio:**
 
     ```bash
-    git clone [https://github.com/hirelens-challenges/Cerdeira-eb9bc4.git](https://github.com/hirelens-challenges/Cerdeira-eb9bc4.git)
+    git clone [https://github.com/jmc760/notes-app-challenge](https://github.com/jmc760/notes-app-challenge)
     ```
 
 2. **Navega al directorio raíz del proyecto:**

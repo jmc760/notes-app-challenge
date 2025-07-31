@@ -6,19 +6,13 @@ This project features a full-stack application designed to manage notes, demonst
 
 ## Features
 
-* **Note Management (Phase 1):**
+* **Note Management:**
   * Create new notes.
   * View active notes.
   * View archived notes.
   * Edit existing notes.
   * Archive and unarchive notes.
   * Delete notes.
-
-* **Category/Tag Management (Phase 2 - *Future Development*):**
-    This feature is planned for future development and can be gladly completed if requested by the evaluators. It would include:
-  * Creating and managing categories/tags.
-  * Assigning categories to notes.
-  * Filtering notes by category.
 
 ## Architecture
 
@@ -64,7 +58,7 @@ Follow these steps to get the application up and running:
 1. **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/hirelens-challenges/Cerdeira-eb9bc4.git](https://github.com/hirelens-challenges/Cerdeira-eb9bc4.git)
+    git clone [https://github.com/jmc760/notes-app-challenge](https://github.com/jmc760/notes-app-challenge)
     ```
 
 2. **Navigate to the project root directory:**
